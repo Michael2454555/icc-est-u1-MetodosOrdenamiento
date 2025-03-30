@@ -83,7 +83,14 @@ public class App {
     public static int  getPositive(Scanner scanner, String message){
         int input;
         do {
+
             System.out.print(message + " ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Error: Ingrese solo números.");
+                scanner.next();
+                System.out.print(message + " ");
+                
+            }
             input = scanner.nextInt();
             if (input <= 0){
                 System.out.println("El numero debe ser positivo" +" "+ "Intente nuevamente");
@@ -92,7 +99,8 @@ public class App {
         } while(input <= 0);
         return input;
 
-    }
+    } 
+    
 
      public static String getVaString( Scanner scanner,String[] posibles , String message  ){
         String input;
